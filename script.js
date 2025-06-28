@@ -730,13 +730,13 @@ function checkOut() {
 
     var request = new XMLHttpRequest();
     request.onreadystatechange = function () {
-        if (request.readyState == 4 & request.status == 200) {
+        if (request.readyState == 4 && request.status == 200) {
             var response = request.responseText;
-            //alert(response);
+            // alert(response);
             var payment = JSON.parse(response);
             doCheckout(payment, "checkoutProcess.php");
         }else{
-            alert("Can't compleate process");
+            alert("status:-"+request.status +  + request.statusText +"__must 4:-"+ request.readyState);
         }
     }; 
     request.open("POST", "paymentProcess.php", true);
